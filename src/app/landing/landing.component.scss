@@ -1,0 +1,45 @@
+.backgroundIconDesktop{
+    position:absolute;
+    top:0;
+    width: 130rem;
+    height:auto;
+}
+.backgroundIconDesktop.lowerPart{
+    top:230vh;
+}
+
+.backgroundIconMobile{
+    position:absolute;
+    bottom: -41rem;
+    left: -20rem;
+    width: 70rem;
+    height:auto;
+}
+
+.googleBadge{
+    fill:white;
+}
+.googleBadge:hover{
+    fill:#4BC0BA;
+}
+
+.svgLogo{
+    fill:white;
+}
+
+.svgLogo:hover{
+    fill:#A0D9D7;
+}
+
+.svgContact:hover{
+    fill:white;
+}
+
+
+.contactButton{
+    background-color: #ffffff
+  }
+  
+  .contactButton:hover{
+    background-color: rgba(74, 191, 185, 0.7);
+  }

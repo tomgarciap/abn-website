@@ -1,0 +1,25 @@
+.imageBgMetadata{
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.cardShadow{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.linearGradientHover{
+    background-image: linear-gradient(to top, #4BC0BA, #4bc0baa4 1%, transparent 30%, transparent 60%,  transparent 100%, transparent);
+}
+
+.linearGradientNormal{
+    background-image: linear-gradient(to top, #333333, #333333 9%, transparent 30%, transparent 60%,  transparent 100%, transparent);
+}
+.mySwiper{
+    height: 23rem;
+    width:100%;
+}
+.swiper-slide {
+    height: 100%;
+    width:100%;
+}

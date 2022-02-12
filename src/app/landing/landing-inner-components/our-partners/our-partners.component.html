@@ -1,0 +1,66 @@
+<h3 class="w-screen max-w-full text-celeste font-bold text-4.5xl flex 
+flex-col justify-center items-center text-center h-40 p-8 mb-8 tracking-wide" translate @fadeSlideInOut>OUR_PARTNERS_SECTION_NAME
+</h3>
+<div class="w-screen max-w-full h-80 flex flex-col 
+  items-center justify-center relative md:px-32" @fadeSlideInOut>
+  <swiper [navigation]="true" class="mySwiper h-full flex flex-col 
+    justify-center items-center px-12 ourPartnersIdentifier w-full md:w-280" style="z-index:2;"
+    [slidesPerView]="slidesPerView" [autoplay]="autoplay">
+    <ng-template swiperSlide class="text-white flex flex-col 
+      justify-center items-center px-16" style="width:100%" *ngFor="let partner of partners;let i = index">
+      <div class="h-full flex flex-col justify-center items-center 
+      w-74 slidePartners bg-celesteFondoTranspSeis grid grid-rows-2 partnerCard" style="border-radius:0.3rem">
+        <div class="flex flex-col justify-center items-center py-2 px-2">
+          <img [src]="partner.logo" class="w-40 h-auto" />
+        </div>
+
+        <!-- <div class="text-white text-sm px-8" style="font-family: 'Source Sans Pro';"><span
+            class="text-celeste text-sm" style="font-family: 'Source Sans Pro'; font-weight:700;"
+            translate>GOAL_PREFIX</span>
+          {{partner.goal}}
+        </div> -->
+        <div class="flex flex-col items-center justify-center">
+          <div class="cursor-pointer flex seeMoreButton" (click)="triggerAnimation(partner.name)"
+            style="font-family: 'Source Sans Pro'; font-weight:700;" [innerHtml]="'SEE_MORE_BUTTON' | translate">
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+
+  <div class="h-80 rounded-2xl bg-white absolute top-0 left-92 w-292 grid grid-cols-3" style="z-index:1;"
+    [@bringToFrontAnimation]="partner.onView && !isMobile? 'inView':'outOfView'"
+    *ngFor="let partner of partners;let i = index">
+    <div class="flex flex-col items-center justify-center">
+      <img [src]="partner.modal_logo" class="w-80 h-auto" />
+    </div>
+    <div class="col-span-2 relative flex flex-col justify-center items-left">
+      <div class="text-base px-8" style="color:rgb(133,133,133)
+;font-family: 'Source Sans Pro';"><span class="text-celeste text-base"
+          style="font-family: 'Source Sans Pro'; font-weight:700;" translate>GOAL_PREFIX</span>
+        {{partner.goal}}
+      </div>
+      <div class="text-base px-8" style="color:rgb(133,133,133)
+;font-family: 'Source Sans Pro';"><span class="text-celeste text-base"
+          style="font-family: 'Source Sans Pro'; font-weight:700;" translate>CHANNELS_PREFIX</span>
+        {{partner.channels}}
+      </div>
+      <div class="text-base px-8" style="color:rgb(133,133,133)
+;font-family: 'Source Sans Pro';"><span class="text-celeste text-base"
+          style="font-family: 'Source Sans Pro'; font-weight:700;" translate>INDUSTRY_PREFIX</span>
+        {{partner.industry}}
+      </div>
+      <!-- <div class="text-base px-8" style="color:rgb(133,133,133)
+;font-family: 'Source Sans Pro';"><span class="text-celeste text-base"
+          style="font-family: 'Source Sans Pro'; font-weight:700;" translate>DESCRIPTION_PREFIX</span>
+        {{partner.description}}
+      </div> -->
+
+      <div (click)="untriggerAnimation(partner.name)">
+        <img src="assets/img/our-partners/crucecita.svg" class="absolute cursor-pointer top-8 right-8"
+          style="fill:#4BC0BA" />
+      </div>
+
+    </div>
+  </div>
+</div>

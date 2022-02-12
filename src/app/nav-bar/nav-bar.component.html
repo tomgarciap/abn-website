@@ -1,0 +1,62 @@
+<!-- DESKTOP NAV BAR -->
+<div class="bg-azulOscuroFondoTranspOcho w-screen 
+max-w-full h-26 py-4 
+pl-22 pr-22 navBarShadow hidden md:block">
+    <div class="grid grid-cols-2">
+        <div class="flex flex-row justify-start items-center">
+            <img class="h-20 w-20 mr-8 cursor-pointer" src="assets/img/abn-logo.svg"
+            (click)="navigateTo('animation')"/>
+            <div class="text-white font-normal" 
+            translate>NAV_VAR_TITLE
+            </div>
+        </div>
+        <div class="flex flex-row justify-end items-center">
+            <div class="text-white text-base font-normal w-32 h-16 whitespace-nowrap 
+            flex flex-col justify-center items-center cursor-pointer hover:text-celeste
+            mr-8" 
+            translate
+            (click)="navigateTo('howWeWork')">NAV_BUTTON_1
+            </div>
+            <div class="text-white text-base font-normal w-32 h-16 whitespace-nowrap 
+            flex flex-col justify-center items-center cursor-pointer hover:text-celeste
+            mr-8" 
+            translate
+            (click)="navigateTo('ourPartners')">NAV_BUTTON_2
+            </div>
+            <div class="text-white text-base font-normal w-32 h-16 whitespace-nowrap 
+            flex flex-col justify-center items-center cursor-pointer hover:text-celeste
+            " 
+            translate
+            (click)="navigateTo('ourTeam')">NAV_BUTTON_3
+            </div>
+            <div class="text-white text-base font-normal w-32 h-16 whitespace-nowrap 
+            flex flex-col justify-center items-center cursor-pointer hover:text-celeste" 
+            translate
+            (click)="navigateTo('contact')">NAV_BUTTON_4
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END DESKTOP NAV BAR -->
+
+
+<!-- MOBILE NAV BAR -->
+<div class="bg-azulOscuroFondoTranspOcho w-screen
+h-16 max-w-full px-4 py-1 navBarShadow md:hidden">
+    <div class="grid grid-cols-2 h-full w-full">
+        <div class="flex flex-row justify-start items-center">
+            <img class="h-12 w-16" src="assets/img/abn-logo.svg"/>
+        </div>
+        <div class="flex flex-row justify-end items-center">
+            <svg class="menuMobileIcon" 
+            viewBox="0 0 31 20" 
+            xmlns="http://www.w3.org/2000/svg"
+            (click)="switchNavigationMenu()">
+                <rect width="31" height="2" rx="1"/>
+                <rect y="9" width="31" height="2" rx="1"/>
+                <rect y="18" width="31" height="2" rx="1"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<!-- END MOBILE NAV BAR -->

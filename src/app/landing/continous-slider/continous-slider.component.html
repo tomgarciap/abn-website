@@ -1,0 +1,12 @@
+<swiper class="mySwiper" 
+style="height:5rem"
+[pagination]="pagination" 
+[autoplay]="autoplay"
+[slidesPerView]="isMobile? 3: 7"
+[loop]="true">
+  <ng-template swiperSlide
+  *ngFor="let tool of tools"
+  class="flex flex-col justify-center items-center">
+    <img [src]="tool.path" style="width:7rem; height:auto;"/>
+  </ng-template>
+</swiper>

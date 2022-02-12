@@ -1,0 +1,93 @@
+<!-- LOADING SCREEN -->
+<div class="LoadingPage bg-azulOscuroFondo 
+z-50 fixed flex 
+justify-center items-center" #loadingElement style="opacity: 0;"
+  [@finishLoading]="websiteReady ? 'closed-telon' : 'opened-telon'"
+  (@finishLoading.done)="finishLoadingDoneEvent($event)" *ngIf="!websiteNotReadyAndAnimationNotFinished">
+  <div class="loading" [@spinnerAnimation]="websiteReady ? 'no-show' : 'show'">
+    <div class="arc"></div>
+    <div class="arc"></div>
+    <div class="arc"></div>
+  </div>
+</div>
+<!-- END LOADING SCREEN -->
+
+<!-- MOBILE NAV BAR MENU -->
+<div class="fixed flex 
+justify-center items-center 
+bg-azulOscuroFondo w-full h-full flex-col
+py-8 px-4 font-semibold md:hidden" style="z-index: 49;" *ngIf="showMobileNavMenu || !websiteReady">
+  <div class="grid grid-rows-5 
+  h-full w-full grid-flow-col px-8">
+    <div class="grid grid-cols-2 py-2
+    row-span-1">
+      <div class="flex flex-row justify-start">
+        <img class="h-20 w-auto" src="assets/img/logo-no-text.svg" />
+      </div>
+      <div class="flex flex-row justify-end">
+        <svg class="menuMobileClose" viewBox="0 0 29 22" xmlns="http://www.w3.org/2000/svg" (click)="closeMobileMenu()">
+          <rect x="3.30591" y="0.232422" width="31" height="2" rx="1" transform="rotate(40.1946 3.30591 0.232422)"
+            fill="#4BC0BA" />
+          <rect x="2.0238" y="20.252" width="31" height="2" rx="1" transform="rotate(-40.2515 2.0238 20.252)"
+            fill="#4BC0BA" />
+        </svg>
+      </div>
+    </div>
+    <div class="flex flex-col 
+    justify-center items-start
+    row-span-4">
+      <div translate class="text-white text-2.5xl" (click)="navigateTo('howWeWork')">
+        NAV_BUTTON_1</div>
+      <div translate class="text-white text-2.5xl" style="margin-top:2.375rem;" (click)="navigateTo('ourPartners')">
+        NAV_BUTTON_2</div>
+      <div translate class="text-white text-2.5xl" style="margin-top:2.375rem;" (click)="navigateTo('ourTeam')">
+        NAV_BUTTON_3</div>
+      <div translate class="text-white text-2.5xl" style="margin-top:2.375rem;" (click)="navigateTo('contact')">
+        NAV_BUTTON_4</div>
+    </div>
+  </div>
+</div>
+<!-- END MOBILE NAV BAR MENU -->
+
+<!-- OUR PARTNERS MODAL -->
+<div class="flex flex-col
+justify-center items-center 
+bg-azulOscuroFondo w-full h-full 
+py-8 px-4 md:hidden fixed" style="z-index: 49;" *ngIf="showPartnersModal">
+<img class="menuMobileClose absolute" (click)="closeOurPartnersModal()" src="assets/img/main/close-button.svg"
+      style="top:2rem;right:2rem" />
+  <div class="grid grid-rows-5 
+h-full w-full">
+    <div class="flex flex-col justify-center items-center row-span-2">
+      <img [src]="partnersModalData.logo" class="w-40 h-auto">
+    </div>
+    <div class="flex flex-col justify-center items-start row-span-3">
+      <div class="text-base px-8" style="color:white;font-family: 'Source Sans Pro';"><span
+          class="text-celeste text-base" style="font-family: 'Source Sans Pro'; font-weight:700;"
+          translate>GOAL_PREFIX</span>
+        {{partnersModalData.goal}}
+      </div>
+      <div class="text-base px-8" style="color:white;font-family: 'Source Sans Pro';"><span
+          class="text-celeste text-base" style="font-family: 'Source Sans Pro'; font-weight:700;"
+          translate>CHANNELS_PREFIX</span>
+        {{partnersModalData.channels}}
+      </div>
+      <div class="text-base px-8" style="color:white;font-family: 'Source Sans Pro';"><span
+          class="text-celeste text-base" style="font-family: 'Source Sans Pro'; font-weight:700;"
+          translate>INDUSTRY_PREFIX</span>
+        {{partnersModalData.industry}}
+      </div>
+      <!-- <div class="text-base px-8" style="color:white;font-family: 'Source Sans Pro';"><span
+          class="text-celeste text-base" style="font-family: 'Source Sans Pro'; font-weight:700;"
+          translate>DESCRIPTION_PREFIX</span>
+        {{partnersModalData.description}}
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- END OUR PARTNERS MODAL -->
+
+<app-nav-bar class="fixed" style="z-index:48;"></app-nav-bar>
+<router-outlet></router-outlet>
+<app-footer style="z-index:32;"></app-footer>
+<app-section-slider class="relative" style="z-index:47"></app-section-slider>

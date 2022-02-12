@@ -1,0 +1,47 @@
+.customInput{
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    border-bottom-width: 0.15rem;
+    border-style: thin;
+    border-bottom-color: whitesmoke;
+    caret-color: whitesmoke;
+    padding-left:0;
+    padding-top:0;
+    padding-bottom:0;
+    font-size:1.125rem;
+    color:white;
+    height:2rem;
+    bottom:2rem;
+}
+.customInput:focus{
+    box-shadow: none;
+    color:white;
+    border-bottom-width: 0.15rem;
+    border-style: thin;
+    border-bottom-color: rgba(27, 24, 55, 0.4);
+    caret-color: whitesmoke;
+}
+.customInput::-moz-selection { /* Code for Firefox */
+    background: rgba(27, 24, 55, 0.4);
+}
+
+.customInput::selection {
+    background: rgba(27, 24, 55, 0.4);
+}
+.arrowCustom{
+    fill:white;
+}
+.arrowCustom:hover{
+    fill:#1B1837;
+}
+
+.moneyButton{
+    color:white;
+    border-color: white;
+}
+
+.moneyButton:hover{
+    color:#1B1837;
+    border-color: #1B1837;
+}

@@ -1,0 +1,24 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/free-mode";
+@import "~swiper/css/navigation";
+body {
+	background-color: #1B1837;
+}
+
+.swiper-pagination-bullet-active {
+	background: #4BC0BA !important;
+	background-color: #4BC0BA !important;
+}
+
+.swiper-button-next{
+	color: #4BC0BA !important;
+}
+
+.swiper-button-prev{
+	color: #4BC0BA !important;
+}
+  

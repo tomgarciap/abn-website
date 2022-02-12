@@ -1,0 +1,135 @@
+<div class="w-screen max-w-full h-120 bg-white grid grid-rows-3">
+  <h3 class="flex flex-col justify-end items-center
+    text-celeste text-center font-bold text-4.5xl tracking-wide ml-4 md:ml-0" translate>
+    CONTACT_SECTION_NAME
+  </h3>
+  <!-- Conjunto Pregunta Input -->
+  <div class="flex flex-col justify-center items-center mt-8">
+    <!-- Relative Conjunto Pregunta Input Shape -->
+    <div class="w-screen md:w-164 h-32 relative bg-celeste rounded-full" style="padding-top: 2rem;padding-left: 2rem;"
+      [@sendFormOuterAnimation]="formSent? 'outterShapeSentMode': 'outterShapeShowing'" #contactFormContainer>
+      <!-- Espacio donde van apareciendo las preguntas -->
+      <div class="overflow-hidden absolute w-full h-8 z-10"
+        [@sendFormInnerAnimation]="formSent? 'innerContentHidden': 'innerContentShowing'">
+        <!-- Form question 1-->
+        <div class="flex flex-row justify-center absolute items-center" [@questionAnimation]="formQuestions[0].alreadyFilled? 'questionFilled': 
+          formQuestions[0].notShown?'questionToShow': 
+          formQuestions[0].showing? 'questionShowing': 
+          'questionToShow'">
+          <div class="ml-2 text-white text-lg md:text-xl" translate>CONTACT_FORM_QUESTION_1</div>
+        </div>
+        <!-- End Form question 1-->
+
+        <!-- Form question 2-->
+        <div class="flex flex-row justify-center absolute items-center" [@questionAnimation]="formQuestions[1].alreadyFilled? 'questionFilled': 
+          formQuestions[1].notShown?'questionToShow': 
+          formQuestions[1].showing? 'questionShowing': 
+          'questionToShow'">
+          <div class="ml-2 text-white text-lg md:text-xl" translate>CONTACT_FORM_QUESTION_2</div>
+        </div>
+        <!-- End Form question 2-->
+
+        <!-- Form question 3-->
+        <div class="flex flex-row justify-center absolute items-center" [@questionAnimation]="formQuestions[2].alreadyFilled? 'questionFilled': 
+          formQuestions[2].notShown?'questionToShow': 
+          formQuestions[2].showing? 'questionShowing': 
+          'questionToShow'">
+          <div class="ml-2 text-white text-lg md:text-xl" translate>CONTACT_FORM_QUESTION_3</div>
+        </div>
+        <!-- End Form question 3-->
+
+        <!-- Form question 4-->
+        <div class="flex flex-row justify-center absolute items-center" [@questionAnimation]="formQuestions[3].alreadyFilled? 'questionFilled': 
+          formQuestions[3].notShown?'questionToShow': 
+          formQuestions[3].showing? 'questionShowing': 
+          'questionToShow'">
+          <div class="ml-2 text-white text-lg md:text-xl" translate>CONTACT_FORM_QUESTION_4</div>
+        </div>
+        <!-- End Form question 4-->
+
+        <!-- Form question 5-->
+        <div class="flex flex-row justify-center absolute items-center" [@questionAnimation]="formQuestions[4].alreadyFilled? 'questionFilled': 
+          formQuestions[4].notShown?'questionToShow': 
+          formQuestions[4].showing? 'questionShowing': 
+          'questionToShow'">
+          <div class="ml-2 text-white text-lg md:text-xl hidden md:block" translate>CONTACT_FORM_QUESTION_5</div>
+          <div class="ml-2 text-white text-lg md:text-xl md:hidden" translate>CONTACT_FORM_QUESTION_5_MOBILE</div>
+        </div>
+        <!-- End Form question 5-->
+      </div>
+      <!-- End Espacio donde van apareciendo las preguntas -->
+      <!-- Input -->
+      <input class="absolute customInput bg-transparent text-lg z-10" style="width:80%;" type="text"
+        [(ngModel)]="enteredText" #formInput *ngIf="showingInput"
+        [@sendFormInnerAnimation]="formSent? 'innerContentHidden': 'innerContentShowing'">
+      <!-- End Input -->
+
+      <!-- Validation text -->
+      <div class="absolute text-white left-8 text-sm" style="bottom:0.75rem;" translate
+        *ngIf="showRequiredFieldMessage">
+        VALIDATION_REQUIRED_FIELD
+      </div>
+      <div class="absolute text-white left-8 text-sm" style="bottom:0.75rem;" translate
+        *ngIf="showRequiredValidEmailMessage">
+        VALIDATION_REQUIRED_EMAIL
+      </div>
+      <!-- End Validation text -->
+
+      <!-- Buttons -->
+      <div class="absolute bottom-4 flex flex-row 
+      justify-center items-center" *ngIf="!showingInput">
+        <div class="text-white text-base 
+        rounded-full border-solid
+        border border-white cursor-pointer 
+        moneyButton" style="padding:0.2rem" (click)="selectBudgetOption('0 - 2000 USD')">
+          0 - 2000 USD
+        </div>
+        <div class="text-white text-base ml-2 
+        rounded-full border-solid
+        border border-white cursor-pointer 
+        moneyButton" style="padding:0.2rem" (click)="selectBudgetOption('2.000 - 20.000 USD')">
+          2.000 - 20.000 USD
+        </div>
+        <div class="text-white text-base ml-2 
+        rounded-full border-solid
+        border border-white cursor-pointer 
+        moneyButton" style="padding:0.2rem" (click)="selectBudgetOption('20.000 - 200.000 USD')">
+          20.000 - 200.000 USD
+        </div>
+        <div class="text-white text-base ml-2 
+        rounded-full border-solid
+        border border-white cursor-pointer 
+        moneyButton" style="padding:0.2rem" (click)="selectBudgetOption('more')" translate>FORM_MORE_OPTION</div>
+      </div>
+      <!-- End Buttons -->
+      <!-- Arrow -->
+      <div class="absolute cursor-pointer 
+      arrowCustom hidden md:block z-20" 
+      style="top: 3rem;right: 2rem;z-index:20;" 
+      (click)="nextQuestion()"
+      [@sendFormInnerAnimation]="formSent? 'innerContentHidden': 'innerContentShowing'">
+        <svg width="1.75rem" height="1.75rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.49 31.49">
+          <path
+            d="M21.205 5.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z">
+          </path>
+        </svg>
+      </div>
+      <!-- End arrow -->
+
+      <!-- Sent icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" class="absolute"
+        style="top: 2.5rem;right: 2.5rem;" viewBox="0 0 24 24" fill="white"
+        [@sentIconDisplay]="formSent? 'sentIconShowing': 'sentIconHidden'">
+        <path
+          d="M23 0l-4.5 16.5-6.097-5.43 5.852-6.175-7.844 5.421-5.411-1.316 18-9zm-11 12.501v5.499l2.193-3.323-2.193-2.176zm-2.789 3.857l.94.934c-.875.885-1.773 1.933-2.125 3.375l-1.286-.314c.434-1.774 1.491-3.004 2.471-3.995zm-1.565 7.642c-.715 0-1.353-.279-1.887-.83-1.458.515-2.844-.044-3.576-1.084-.575-.817-.703-1.853-.353-2.845-.552-.534-.83-1.166-.83-1.884 0-1.562 1.16-2.803 3.24-2.586l.195 1.117c-.664.062-1.277.097-1.674.494-.668.668-.467 2.063.787 2.433-.832.836-.751 2.037-.127 2.696.654.69 1.903.799 2.765-.059.385 1.305 1.798 1.422 2.433.787.392-.392.431-.995.492-1.649l1.125.229c.2 1.979-1.009 3.181-2.59 3.181zm-3.318-7.032l.314 1.287c1.755-.43 2.953-1.45 3.989-2.471l-.938-.931c-.876.866-1.927 1.764-3.365 2.115z" />
+      </svg>
+      <!-- End sent icon -->
+    </div>
+    <!-- End Relative Conjunto Pregunta Input Shape -->
+  </div>
+  <!-- End Conjunto Pregunta Input -->
+  <!-- End contact form -->
+  <div>
+
+  </div>
+</div>
